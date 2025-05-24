@@ -1,0 +1,49 @@
+include _header.jade
+<section class="main-content main-content_inner">
+    <div class="wrapper">
+        <div class="breadcrumbs" id="navigation">
+            <ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                <li class="bx-breadcrumb-item" id="bx_breadcrumb_0" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a href="/" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                    </a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li class="bx-breadcrumb-item">
+                    <span>Регистрация</span>
+                </li>
+            </ul>
+        </div>
+        <h1 class="main-title main-title_center">Регистрация</h1>
+        <div class="reg_form_block">
+            <div class="subtitle">Пожалуйста, заполните форму, чтобы создать аккаунт</div>
+            <form action="">
+                <div class="form_input required">
+                    <input type="text" required placeholder="E-mail*">
+                </div>
+                <div class="form_input">
+                    <input type="text" placeholder="Название организации">
+                </div>
+                <div class="form_input">
+                    <input type="text" placeholder="ФИО">
+                </div>
+                <div class="form_input required">
+                    <input type="password" required placeholder="Пароль">
+                </div>
+                <div class="form_input required">
+                    <input type="password" required placeholder="Подтверждение пароля">
+                </div>
+                <div class="txt-c w-100">
+                    <input type="button" name="web_form_submit" value="Отправить сообщение" class="btn btn--red btn_submit_service btn_submit">
+                </div>
+                <label class="b-label b-label--checkbox form_input required"> <input type="checkbox" required="">
+                    <div class="b-checkbox">
+                        <i class="icon icon-checked--red"></i>
+                    </div>
+                    <div class="b-checkbox__text">Я даю согласие на <a href="/policy/">обработку своих персональных данных</a> и ознакомлен с <a href="/policy/">политикой конфиденциальности</a></div>
+                </label>
+            </form>
+        </div>
+    </div>
+</section>
+include _footer.jade
