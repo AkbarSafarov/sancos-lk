@@ -9,10 +9,8 @@ class FormValidator {
     init() {
         if (!this.form) return;
         
-        // Добавляем обработчики событий
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        this.form.querySelector('.btn_submit').addEventListener('click', (e) => this.handleSubmit(e));
         
-        // Валидация в реальном времени
         const inputs = this.form.querySelectorAll('input');
         inputs.forEach(input => {
             input.addEventListener('blur', () => this.validateField(input));
@@ -23,11 +21,8 @@ class FormValidator {
     // Обработка отправки формы
     handleSubmit(e) {
         e.preventDefault();
-        
-        // Очищаем предыдущие ошибки
         this.clearAllErrors();
-        
-        // Валидируем все поля
+
         const isValid = this.validateForm();
         
         if (isValid) {
@@ -132,6 +127,24 @@ class FormValidator {
 
     // Показать ошибку для поля
     showFieldError(input, message) {
+        // Отдельная обработка для чекбокса
+        if (input.type === 'checkbox') {
+            const container = input.closest('.checkbox-wrapper') || input.parentElement;
+            if (container) {
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = message;
+                errorElement.style.color = '#ff0000';
+                errorElement.style.fontSize = '12px';
+                errorElement.style.marginTop = '5px';
+                
+                container.appendChild(errorElement);
+                container.classList.add('has-error');
+            }
+            return;
+        }
+
+        // Обработка обычных полей
         const container = input.closest('.form_input') || input.closest('.b-label');
         if (container) {
             const errorElement = document.createElement('div');
@@ -145,6 +158,7 @@ class FormValidator {
             container.classList.add('has-error');
         }
     }
+
 
     // Очистить ошибку поля
     clearFieldError(input) {
@@ -193,7 +207,7 @@ class FormValidator {
         }
     }
 
-    // Отправка формы (здесь можно добавить AJAX запрос)
+    // Отправка формы
     submitForm() {
         // Собираем данные формы
         const formData = new FormData(this.form);

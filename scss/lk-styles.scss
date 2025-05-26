@@ -9,7 +9,11 @@ html, body {margin: 0;height: 100%;min-height: 100%;}
 
 	.subtitle {
 		padding-bottom: 30px;
-
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 137%;
+		text-align: center;
+		color: #333;
 	}
 
 	input  {
@@ -31,6 +35,27 @@ html, body {margin: 0;height: 100%;min-height: 100%;}
 	input[type="checkbox"] {
 		width: auto;
 		padding: 0;
+	}
+
+	.b-label--checkbox {
+		font-weight: 400;
+		font-size: 14px;
+		letter-spacing: 0.02em;
+		color: #828282;
+		flex-wrap: wrap;
+
+		a {
+			font-weight: 700;
+			color: #828282;
+		}
+
+		.b-checkbox__text {
+			flex: 0 0 calc(100% - 34px);
+		}
+	}
+
+	.error-message {
+		width: 100%;
 	}
 }
 
